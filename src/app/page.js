@@ -56,9 +56,9 @@ const TextProcessingAi = () => {
     try {
       const detector = await window.ai.languageDetector.create()
       return await detector.detect(text)
+      console.error("Error detecting language:", error)
     } catch (error) {
          return { detectedLanguage: "unknown", confidence: 0 }
-      console.error("Error detecting language:", error)
     }
   }
 
