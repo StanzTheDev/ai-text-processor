@@ -53,15 +53,17 @@ const TextProcessingAi = () => {
     }
   }
 
-  const detectLanguage = async (text) => {
+   const detectLanguage = async (text) => {
     try {
-      const detector = await window.ai.languageDetector.create()
-      return await detector.detect(text)
-      console.error("Error detecting language:", error)
+        const detector = await window.ai.languageDetector.create();
+        const result = await detector.detect(text);
+        
+        return result[0].detectedLanguage; // Fix property name
     } catch (error) {
-         return { detectedLanguage: "unknown", confidence: 0 }
+        return { detectedLanguage: "unknown", confidence: 0 };
     }
-  }
+};
+
 
   const summarizeText = async (text, index) => {
     if (!isAIAvailable) {
