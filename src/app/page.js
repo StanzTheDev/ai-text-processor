@@ -38,6 +38,7 @@ const TextProcessingAi = () => {
 
     try {
       const detectionResult = await detectLanguage(inputText)
+     console.log(detectionResult);
       const newEntry = {
         id: Date.now(),
         text: inputText,
